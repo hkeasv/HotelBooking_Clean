@@ -1,5 +1,4 @@
-﻿using System.Net;
-using HotelBooking.Core;
+﻿using HotelBooking.Core;
 using HotelBooking.Infrastructure;
 using HotelBooking.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
