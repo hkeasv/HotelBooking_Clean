@@ -36,7 +36,7 @@ steps:
   displayName: 'Install Postman CLI via npm'
   inputs:
     script: |
-      npm install -g @postman/postman-cli
+      npm install -g postman-cli
       
 #Run Postman tests
 - task: CmdLine@2
