@@ -41,7 +41,7 @@ steps:
   displayName: 'Run .NET 10 Unit Tests'
   inputs:
     script: |
-      dotnet test --no-build --configuration Release --report-trx --collect "XPlat Code Coverage"
+      dotnet test --no-build --configuration Release
 
 
 # Run the Web API in the background
