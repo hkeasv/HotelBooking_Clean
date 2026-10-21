@@ -27,7 +27,7 @@ steps:
 - task: CmdLine@2
   displayName: 'Run .NET 10 MTP Unit Tests'
   inputs:
-    script: 'dotnet test --no-build --report-trx'
+    script: 'dotnet test --no-build'
 
 # Run the Web API in the background
 - task: CmdLine@2
