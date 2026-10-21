@@ -40,7 +40,10 @@ steps:
       curl -o- "https://pstmn.io" | sh
       
 #Run Postman tests
-- task: CmdLine@2
-  displayName: Run Postman tests
+- task: Bash@3
+  displayName: 'Verify and Run Postman Tests'
   inputs:
-    script: 'postman collection run $(Build.SourcesDirectory)/Postman/HotelBooking.postman_collection.json -k -r cli'
+    targetType: 'inline'
+    script: |
+      postman --version
+      postman collection run $(Build.SourcesDirectory)/Postman/HotelBooking.postman_collection.json -k -r cli
