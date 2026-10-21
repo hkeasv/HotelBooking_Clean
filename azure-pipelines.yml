@@ -31,12 +31,12 @@ steps:
   inputs:
     script: 'dotnet $(Build.SourcesDirectory)/HotelBooking.WebApi/bin/$(buildConfiguration)/HotelBooking.WebApi.dll &'
 
-# Install Postman CLI globally via npm
+# 1. Download and install Postman CLI
 - task: CmdLine@2
-  displayName: 'Install Postman CLI via npm'
+  displayName: 'Install Postman CLI'
   inputs:
     script: |
-      npm install -g postman-cli
+      curl -o- "https://pstmn.io" | sh
       
 #Run Postman tests
 - task: CmdLine@2
