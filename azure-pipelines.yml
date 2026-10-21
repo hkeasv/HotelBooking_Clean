@@ -31,16 +31,15 @@ steps:
   inputs:
     script: 'dotnet $(Build.SourcesDirectory)/HotelBooking.WebApi/bin/$(buildConfiguration)/HotelBooking.WebApi.dll &'
 
-# Download and install Postman CLI on Linux
-- task: Bash@3
-  displayName: 'Install Postman CLI'
+# Install Postman CLI globally via npm
+- task: CmdLine@2
+  displayName: 'Install Postman CLI via npm'
   inputs:
-    targetType: 'inline'
     script: |
-      curl -o- "https://pstmn.io" | sh
+      npm install -g @postman/postman-cli
       
 #Run Postman tests
-- task: Bash@3
+- task: CmdLine@2
   displayName: 'Verify and Run Postman Tests'
   inputs:
     targetType: 'inline'
