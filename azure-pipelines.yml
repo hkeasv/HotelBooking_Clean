@@ -31,15 +31,15 @@ steps:
   inputs:
     script: 'dotnet $(Build.SourcesDirectory)/HotelBooking.WebApi/bin/$(buildConfiguration)/HotelBooking.WebApi.dll &'
 
-# Install Newman
+# Install Postman CLI
 - task: Npm@1
-  displayName: Install Newman
+  displayName: Install Postman CLI
   inputs:
     command: 'custom'
-    customCommand: 'install newman -g'
+    customCommand: 'install -g postman-cli'
 
 #Run Postman tests
 - task: CmdLine@2
   displayName: Run Postman tests
   inputs:
-    script: 'newman run $(Build.SourcesDirectory)/Postman/HotelBooking.postman_collection.json -k -r cli'
+    script: 'postman collection run $(Build.SourcesDirectory)/Postman/HotelBooking.postman_collection.json -k -r cli'
