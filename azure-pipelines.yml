@@ -23,7 +23,7 @@ steps:
   inputs:
     command: 'build'
     projects: '**/*.csproj'
-    arguments: '--no-restore --configuration Release'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
 
 # Run Unit Tests using .NET 10 MTP Syntax
     - task: DotNetCoreCLI@2
@@ -33,8 +33,7 @@ steps:
         custom: 'test'
         # Note: MTP functions best when targeted directly at the test projects.
         projects: '**/*[Tt]ests/*.csproj' 
-        arguments: '--configuration $(buildConfiguration) --no-build
-
+        arguments: '--configuration $(buildConfiguration) --no-build'
 
 # Run the Web API in the background
 - task: CmdLine@2
